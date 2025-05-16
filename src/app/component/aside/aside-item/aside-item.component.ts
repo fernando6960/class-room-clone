@@ -8,12 +8,5 @@ import { IAsideItem } from '@models/IAsideItem';
 })
 export class AsideItemComponent {
   item: InputSignal<IAsideItem | undefined> = input<IAsideItem>();
-
-  constructor() {
-    const nItem: IAsideItem = {
-      imgSrc: 'test.png',
-      imgAlt: 'test',
-    };
-    console.log(nItem);
-  }
+  title: InputSignal<string | undefined> = input<string>();
 }

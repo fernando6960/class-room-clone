@@ -1,8 +1,10 @@
-<div class="">
-  <app-item [item]="item()">
-    {{ title() }}
-  </app-item>
-  <div class="flex flex-col items-center justify-center w-full">
+<div class="flex flex-col gap-2">
+  <app-aside-item [item]="item()" [title]="title()" />
+  <div
+    [class]="
+      'flex flex-col justify-center w-full transition-[height] h-auto gap-2'
+    "
+  >
     <ng-content />
   </div>
 </div>

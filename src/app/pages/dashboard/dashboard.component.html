@@ -11,24 +11,54 @@
   </nav>
 </header>
 <div class="flex flex-row-reverse">
-  <main class="flex flex-col items-center justify-center w-full">
-    <div class="flex flex-col items-center justify-center w-full">
-      <h2>Dashboard</h2>
-      <p>Welcome to the classroom!</p>
-    </div>
-    <div class="flex flex-col items-center justify-center w-full">
-      <h3>Classroom</h3>
-      <p>Classroom description goes here.</p>
-    </div>
-    <div class="flex flex-col items-center justify-center w-full">
-      <h4>Classroom</h4>
-      <p>Classroom description goes here.</p>
+  <main class="flex flex-col items-center w-full bg-gray-500">
+    <header
+      class="border-b-2 border-b-slate-200 w-full py-2 px-4 flex justify-between"
+    >
+      <nav>
+        <!-- Aqui iran unas tabs como component -->
+        <span>oloverga</span>
+      </nav>
+      <h3>pero bueno</h3>
+    </header>
+    <!-- Aqui ira una logica que renderizara un componente segun haya uno activo  -->
+    <div class="w-2xl bg-white flex flex-col gap-3 mt-3">
+      <div>
+        <!-- este boton debe ser un component que haga un collapse de opciones -->
+        <button
+          class="bg-blue-500 text-white rounded-full px-4 py-2 font-semibold hover:bg-blue-600"
+        >
+          &#10011; Crear
+        </button>
+      </div>
+      <div>
+        <select>
+          <option value="">Todos los temas</option>
+          <option value="">Temas pendientes</option>
+        </select>
+      </div>
     </div>
   </main>
+  <!-- Todo lo que tiene que ver con el asidde -->
   <app-aside>
     <app-aside-section>
-      <h2>Classroom</h2>
-      <p>Classroom description goes here.</p>
+      <app-aside-item title="Home" />
+      <app-aside-item title="Calendario" />
+    </app-aside-section>
+    <app-aside-section>
+      <app-aside-item title="Clases impartidas" />
+      <app-aside-item title="Para Revisar" />
+      <app-aside-list-item title="Clases">
+        <app-aside-item title="Clase 1" />
+        <app-aside-item title="Clase 2" />
+        <app-aside-item title="Clase 3" />
+      </app-aside-list-item>
+      <app-aside-item title="Tareas" />
+      <app-aside-item title="Exámenes" />
+    </app-aside-section>
+    <app-aside-section>
+      <app-aside-item title="Clases Archivadas" />
+      <app-aside-item title="Ajustes" />
     </app-aside-section>
   </app-aside>
 </div>
