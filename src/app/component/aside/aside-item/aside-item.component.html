@@ -1,0 +1,8 @@
+<div class="flex items-center justify-center w-full focus:bg-slate-200">
+  <img
+    [src]="item()?.imgSrc"
+    [alt]="item()?.imgAlt"
+    class="w-20 h-20 rounded-full object-cover mb-2"
+  />
+  <p><ng-content /></p>
+</div>
