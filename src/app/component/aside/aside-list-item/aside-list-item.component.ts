@@ -1,4 +1,4 @@
-import { Component, input, OnInit } from '@angular/core';
+import { Component, input, OnInit, signal } from '@angular/core';
 import { IAsideItem } from '@models/IAsideItem';
 import { AsideItemComponent } from '../aside-item/aside-item.component';
 @Component({
@@ -10,5 +10,6 @@ import { AsideItemComponent } from '../aside-item/aside-item.component';
 export class AsideListItemComponent implements OnInit {
   title = input.required<string>();
   item = input<IAsideItem>();
+  active = signal(false);
   ngOnInit() {}
 }

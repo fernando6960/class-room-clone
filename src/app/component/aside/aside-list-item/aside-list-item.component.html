@@ -1,10 +1,15 @@
-<div class="flex flex-col gap-2">
-  <app-aside-item [item]="item()" [title]="title()" />
-  <div
-    [class]="
-      'flex flex-col justify-center w-full transition-[height] h-auto gap-2'
-    "
-  >
-    <ng-content />
+<div class="flex flex-col gap-2 relative" (click)="active.set(!active())">
+  <div class="flex items-center w-full">
+    <app-aside-item [item]="item()" [title]="title()" class="w-full" />
+    <span class="absolute left-2">v</span>
   </div>
+  @if (active()) {
+    <div
+      [class]="
+        'flex flex-col justify-center w-full transition-[height] h-auto gap-2'
+      "
+    >
+      <ng-content />
+    </div>
+  }
 </div>

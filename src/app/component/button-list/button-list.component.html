@@ -1,0 +1,23 @@
+<div>
+  <button
+    class="bg-blue-500 text-white rounded-full px-4 py-2 font-semibold hover:bg-blue-600 relative"
+    (click)="activate.set(!activate())"
+  >
+    <ng-content />
+  </button>
+  <div
+    class="bg-amber-200 h-auto w-42 absolute translate-y-2 transition-opacity ease-in duration-150 flex-none"
+    [class]="{
+      'opacity-0': !activate(),
+      hidden: !activate(),
+    }"
+  >
+    @for (
+      listItem of listItem();
+      track listItem.title + " " + ind;
+      let ind = $index
+    ) {
+      <app-button-option [item]="listItem" />
+    }
+  </div>
+</div>

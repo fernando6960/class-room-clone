@@ -1,0 +1,66 @@
+<main class="flex flex-col items-center w-full">
+  <header
+    class="border-b-1 border-b-slate-200 w-full px-4 flex justify-between items-center h-12"
+  >
+    <nav>
+      <ul class="flex gap-2 items-center">
+        <li
+          (click)="option.set('tablon')"
+          class="hover:text-blue-400 hover:cursor-pointer min-w-12"
+          [class]="{
+            'text-blue-600': option() === 'tablon',
+            'font-semibold': option() === 'tablon',
+          }"
+        >
+          Tablon
+        </li>
+        <li
+          (click)="option.set('trabajo-de-clase')"
+          class="hover:text-blue-400 hover:cursor-pointer min-w-30"
+          [class]="{
+            'text-blue-600': option() === 'trabajo-de-clase',
+            'font-semibold': option() === 'trabajo-de-clase',
+          }"
+        >
+          Trabajo de clase
+        </li>
+        <li
+          (click)="option.set('personas')"
+          class="hover:text-blue-400 hover:cursor-pointer min-w-16"
+          [class]="{
+            'text-blue-600': option() === 'personas',
+            'font-semibold': option() === 'personas',
+          }"
+        >
+          Personas
+        </li>
+        <li
+          (click)="option.set('calificaciones')"
+          class="hover:text-blue-400 hover:cursor-pointer min-w-16"
+          [class]="{
+            'text-blue-600': option() === 'calificaciones',
+            'font-semibold': option() === 'calificaciones',
+          }"
+        >
+          Calificaciones
+        </li>
+      </ul>
+    </nav>
+    <h3>pero bueno</h3>
+  </header>
+  <!-- Aqui ira una logica que renderizara un componente segun haya uno activo  -->
+  @switch (option()) {
+    @case ("tablon") {
+      <app-tab-tablon />
+    }
+    @case ("trabajo-de-clase") {
+      <app-tab-trabajo-clase />
+    }
+    @case ("personas") {
+      <app-tab-personas />
+    }
+    @case ("calificaciones") {
+      <app-tab-calificaciones />
+    }
+  }
+</main>
