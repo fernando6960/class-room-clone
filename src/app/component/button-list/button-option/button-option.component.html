@@ -1,4 +1,4 @@
-<div>
-  <img [src]="item().imgSrc" [alt]="item().imgAlt" />
-  <span>{{ item().title }}</span>
+<div class="flex border-b-2 border-b-slate-200 items-center gap-2 py-4 px-2">
+  <img [src]="item().imgSrc" [alt]="item().imgAlt" class="p-2 size-8" />
+  <a [routerLink]="[item().link, item().value]">{{ item().title }}</a>
 </div>

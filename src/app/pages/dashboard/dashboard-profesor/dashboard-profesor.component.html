@@ -51,10 +51,13 @@
   <!-- Aqui ira una logica que renderizara un componente segun haya uno activo  -->
   @switch (option()) {
     @case ("tablon") {
-      <app-tab-tablon />
+      <app-tab-tablon
+        [curso]="curso().nombre"
+        [descripcion]="curso().descripcion"
+      />
     }
     @case ("trabajo-de-clase") {
-      <app-tab-trabajo-clase />
+      <app-tab-trabajo-clase [curso]="curso()" />
     }
     @case ("personas") {
       <app-tab-personas />

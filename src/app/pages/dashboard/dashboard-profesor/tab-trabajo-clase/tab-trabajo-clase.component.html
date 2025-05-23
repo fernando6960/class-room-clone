@@ -9,4 +9,10 @@
       <option value="">Temas pendientes</option>
     </select>
   </div>
+  <!-- los temas de la clase -->
+  <main>
+    @for (tarea of tareas; track tarea.titulo + $index) {
+      <app-task> {{ tarea.titulo }} </app-task>
+    }
+  </main>
 </div>

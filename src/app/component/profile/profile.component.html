@@ -1,1 +1,18 @@
-<p>profile works!</p>
+<div class="relative flex items-center justify-center">
+  <span
+    class="font-semibold text-white text-lg cursor-pointer rounded-full size-12 bg-cyan-500 relative flex items-center justify-center"
+    (click)="activate.set(!activate())"
+    >{{ title().at(0) }}</span
+  >
+  @if (activate()) {
+    <div
+      class="absolute w-50 right-1 top-12 px-2 py-4 shadow-2xs bg-slate-200 rounded-lg border-4 border-slate-400 z-50"
+    >
+      <ul class="flex flex-col text-center gap-2">
+        <li class="font-thin">email&#64;gmail.com</li>
+        <li class="italic font-semibold text-2xl">{{ title() }}</li>
+        <li class="cursor-pointer" (click)="logout()">🚪Salir</li>
+      </ul>
+    </div>
+  }
+</div>

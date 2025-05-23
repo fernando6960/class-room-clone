@@ -1,0 +1,51 @@
+<header
+  class="flex items-center justify-between w-full border-b-slate-200 py-4 px-8 border-b-1"
+>
+  <div class="flex items-center gap-3">
+    <span class="">&#9776;</span>
+    <img
+      src="Google_Classroom_Logo.png"
+      alt="classroom-icon"
+      class="h-6 ml-4"
+    />
+    <h1 class="font-normal text-gray-500 text-[22px]">Classroom</h1>
+  </div>
+  <nav class="flex gap-2">
+    <app-profile />
+  </nav>
+</header>
+<div class="grid grid-cols-[auto_1fr] grid-rows-[1fr]">
+  <!-- Todo lo que tiene que ver con el asidde -->
+  <app-aside (getId)="setId($event)">
+    <app-aside-section>
+      <app-aside-item
+        title="Home"
+        [item]="{ imgSrc: '/assets/aside-home.svg', imgAlt: 'home' }"
+      />
+      <app-aside-item
+        title="Calendario"
+        [item]="{ imgSrc: '/assets/aside-calendar.svg', imgAlt: 'calendar' }"
+      />
+    </app-aside-section>
+    <app-aside-section>
+      <app-aside-item title="Clases impartidas" />
+      <app-aside-item title="Para Revisar" />
+      @for (curso of cursos; track curso.nombre + " " + ind; let ind = $index) {
+        <app-aside-item [title]="curso.nombre" [id]="curso.id" />
+      }
+    </app-aside-section>
+    <app-aside-section>
+      <app-aside-item title="Clases Archivadas" />
+      <app-aside-item title="Ajustes" />
+    </app-aside-section>
+  </app-aside>
+  @if (user() === "profesor") {
+    <app-dashboard-profesor
+      [curso]="obj().curso"
+      [tareas]="obj().tarea"
+      [descripcion]="'nose de momento'"
+    />
+  } @else {
+    <app-dashboard-estudiante [curso]="obj().curso" />
+  }
+</div>

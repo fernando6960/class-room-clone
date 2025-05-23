@@ -1,9 +1,15 @@
 import { Routes } from '@angular/router';
-import { DashboardComponent } from '@pages/dashboard/dashboard.component';
+import DashboardRoutes from '@pages/dashboard/dashboard.routes';
 import { LoginFormComponent } from '@pages/login-form/login-form.component';
+import { authGuard } from './guard/auth.guard';
+import { unAuthGuard } from './guard/un-auth.guard';
 
 export const routes: Routes = [
-  { path: 'login', component: LoginFormComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'login', component: LoginFormComponent, canActivate: [unAuthGuard] },
+  {
+    path: 'dashboard',
+    children: DashboardRoutes,
+    canActivate: [authGuard],
+  },
   { path: '**', redirectTo: 'login' },
 ];

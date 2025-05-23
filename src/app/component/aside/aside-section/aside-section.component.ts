@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-aside-section',
   imports: [],
   templateUrl: './aside-section.component.html',
-  styleUrl: './aside-section.component.css'
+  styleUrl: './aside-section.component.css',
 })
-export class AsideSectionComponent {
-
-}
+export class AsideSectionComponent {}

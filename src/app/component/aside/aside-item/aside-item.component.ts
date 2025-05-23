@@ -1,4 +1,4 @@
-import { Component, input, InputSignal } from '@angular/core';
+import { Component, input, InputSignal, output, signal } from '@angular/core';
 import { IAsideItem } from '@models/IAsideItem';
 @Component({
   selector: 'app-aside-item',
@@ -9,4 +9,10 @@ import { IAsideItem } from '@models/IAsideItem';
 export class AsideItemComponent {
   item: InputSignal<IAsideItem | undefined> = input<IAsideItem>();
   title: InputSignal<string | undefined> = input<string>();
+  id = input<number>();
+  getId = output<number>();
+  trigger() {
+    console.log('ejectutate');
+    this.getId.emit(this.id()!);
+  }
 }
